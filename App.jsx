@@ -1,24 +1,8 @@
-
-import { StyleSheet, View } from 'react-native';
-import DeviceInfo from './screens/DeviceInfo';
-// import css from '.css/style.css';
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+import RootNavigation from "./src";
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <DeviceInfo />
-      
-    </View>
+  return(
+    <RootNavigation persistenceKey="pog" />
   );
-}
-
+};
 
