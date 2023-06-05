@@ -20,6 +20,16 @@ export default function Home({navigation}) {
                 onPress={() => navigation.navigate('BatteryInfo')}
                 title="Ir para BatteryInfo"
             />
+            <Button 
+                mode="contained"
+                onPress={() => navigation.navigate('Notify')}
+                title="Ir para Notify"
+            />
+            <Button 
+                mode="contained"
+                onPress={() => navigation.navigate('MyScreenOrientation')}
+                title="Ir para MyScreenOrientation"
+            />
 
         </View>
     )
