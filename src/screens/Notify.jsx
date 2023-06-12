@@ -1,90 +1,135 @@
+import { View, StyleSheet, Text, Button } from "react-native";
 
-import { StyleSheet, View,  Button, Text } from 'react-native';
-import * as Notifications from 'expo-notifications';
+import * as Notification from "expo-notifications";
+
+import * as Device from "expo-device";
+
 import * as Battery from "expo-battery";
-import { useState } from 'react';
-import { useEffect } from 'react';
 
+// import { useNavigation } from "@react-navigation/native";
+
+import Header from "../components/Header";
+
+import { useEffect, useState } from "react";
 
 const styles = StyleSheet.create({
-    title: {
-        backgroundColor: "purple",
-        fontSize: 25,
-        padding: 10,
-    },
+  container: {
+    flex: 1,
 
-    estilo: {
-        fontSize: 15,
-        backgroundColor: "yellow",
-        padding: 10,
-        top: 10,
-        bottom: 10,
-        margin: 10,
-    },
-
-
-    botao: {
-        backgroundColor: "red",
-        padding: 10,
-        margin: 10,
-        top: 10,
-    },
-    
+    gap: 10,
+  },
 });
 
-export default function Notify() {
-    const [expoToken, setExpoToken] = useState('');
-    const [nivelBateria, setNivelBateria] = useState();
+export default function Notify({ navigation }) {
+  const [expoToken, setExpoToken] = useState("");
 
+  const [nivelBateria, setNivelBateria] = useState();
 
-    async function NotifyExpo(){
-        const token = await Notifications.scheduleNotificationAsync({
-            content: {
-                title: "Notificação",
-                subtitle: "Notificação",
-                body: "Notificação",
-            },
-            trigger: { seconds: 3 }
-        })
-        setExpoToken(token)
-    }
-    async function NotifyBaterry(){
-        const token = await Notifications.scheduleNotificationAsync({
-            content: {
-                title: "Notificação",
-                subtitle: "Notificação",
-                body: "Notificação",
-            },
-            trigger: { seconds: 3 }
-        })
-        setExpoToken(token)
-    }
-    
-    const ultimaNotificacao = Notifications.useLastNotificationResponse();
-    async function exibirAlert(){
-        alert('Opa, ve ai as mensagen')
-    }
-    useEffect(() => {
-        exibirAlert();
-        
+  const [statusBateria, setStatusBateria] = useState();
 
-    }), [ultimaNotificacao];
+  async function atualizarTudo() {
+    bateria();
+  }
 
-   
-    return(
-        <View>
-            <Text>Expo Tokem: {expoToken}</Text>
-           
-            <Button 
-                title="Enviar notificação"
-                onPress={async () => NotifyExpo ()}
-            />
-            <Button 
-                title="Enviar notificação da bateria"
-                onPress={async () => NotifyBaterry() }
-            />
-            <Button title="Ler ultima notificação" />
-            <Button title="esta aqui" />
-        </View>
-    )
+  async function status() {
+    const status = await Battery.getBatteryStateAsync();
+
+    setStatusBateria(status);
+  }
+
+  async function bateria() {
+    const nivel = await Battery.getBatteryLevelAsync();
+
+    setNivelBateria(nivel * 100);
+  }
+
+  useEffect(() => {
+    bateria();
+
+    status();
+  }, []);
+
+  async function notificarBateria() {
+    const token = await Notification.scheduleNotificationAsync({
+      content: {
+        title: "Nível da bateria",
+
+        subtitle: "aaaaaaa",
+
+        body: nivelBateria + "%",
+      },
+
+      trigger: { seconds: 3 },
+    });
+
+    setExpoToken(token);
+  }
+
+  async function notiAlertaBateria() {
+    alert("Nível da bateria: " + nivelBateria + "%");
+  }
+
+  async function notiMensagem() {
+    const token = await Notification.scheduleNotificationAsync({
+      content: {
+        title: "Mensagem",
+
+        subtitle: "aaaaaa",
+
+        body: "Help",
+      },
+
+      trigger: { seconds: 3 },
+    });
+  }
+
+  async function notificarAparelho() {
+    const token = await Notification.scheduleNotificationAsync({
+      content: {
+        title: "Aparelho",
+
+        subtitle: "aaaaa",
+
+        body: "O seu aparelho " + Device.modelName + " é incrível",
+      },
+
+      trigger: { seconds: 3 },
+    });
+
+    setExpoToken(token);
+  }
+
+  function navigateToAnotherPage() {
+    navigation.navigate("Home");
+  }
+
+  return (
+    <View style={styles.container}>
+      <Header title="Notificações" />
+
+      <View>
+        <Text>Notify</Text>
+      </View>
+
+      <View>
+        <Text>Token: {expoToken}</Text>
+
+        <Button title="Enviar Notificação" onPress={notiMensagem} />
+
+        <Button title="Enviar Alerta da bateria" onPress={notiAlertaBateria} />
+
+        <Button title="Enviar Alerta do aparelho" onPress={notificarAparelho} />
+
+        <Button
+          title="Enviar Notificação da Bateria"
+          onPress={notificarBateria}
+        />
+
+        <Button
+          title="Enviar para outra página"
+          onPress={navigateToAnotherPage}
+        />
+      </View>
+    </View>
+  );
 }
