@@ -1,4 +1,4 @@
-import { Button } from "react-native";
+import { Button, View } from "react-native";
 
 
 const styles = ({
