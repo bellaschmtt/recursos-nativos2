@@ -30,6 +30,11 @@ export default function Home({navigation}) {
                 onPress={() => navigation.navigate('MyScreenOrientation')}
                 title="Ir para MyScreenOrientation"
             />
+             <Button 
+                mode="contained"
+                onPress={() => navigation.navigate('ContactsInfo')}
+                title="Ir para ContactsInfo"
+            />
 
         </View>
     )

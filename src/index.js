@@ -5,6 +5,7 @@ import BaterryInfo from "./screens/BatteryInfo";
 import Notify from "./screens/Notify";
 import { NavigationContainer } from "@react-navigation/native";
 import MyScreenOrientation from "./screens/MyScreenOrientation";
+import ContactsInfo from "./screens/ContactsInfo";
 
 
 const Stack = createNativeStackNavigator();
@@ -38,6 +39,11 @@ export default function RootNavigation() {
           name="MyScreenOrientation"
           component={MyScreenOrientation}
           options={{ title: "MyScreenOrientations" }}
+        />
+        <Stack.Screen
+          name="ContactsInfo"
+          component={ContactsInfo}
+          options={{ title: "ContactsInfo" }}
         />
       </Stack.Navigator>
     </NavigationContainer>

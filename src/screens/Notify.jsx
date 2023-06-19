@@ -42,11 +42,16 @@ export default function Notify({ navigation }) {
 
     setNivelBateria(nivel * 100);
   }
+  async function mudartela() {
+    if (nivelBateria < 20) {
+      navigation.navigate("BatteryInfo");
+    }
+  }
 
   useEffect(() => {
     bateria();
-
     status();
+    mudartela();
   }, []);
 
   async function notificarBateria() {
@@ -97,12 +102,16 @@ export default function Notify({ navigation }) {
     });
 
     setExpoToken(token);
+    mudartela();
   }
 
   function navigateToAnotherPage() {
     navigation.navigate("Home");
   }
-
+  // completar
+  // async function OutraPag() {
+  //   alert("teste");
+  // }
   return (
     <View style={styles.container}>
       <Header title="Notificações" />
