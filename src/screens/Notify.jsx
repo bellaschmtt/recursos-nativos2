@@ -1,9 +1,6 @@
 import { View, StyleSheet, Text, Button } from "react-native";
-
 import * as Notification from "expo-notifications";
-
 import * as Device from "expo-device";
-
 import * as Battery from "expo-battery";
 
 // import { useNavigation } from "@react-navigation/native";

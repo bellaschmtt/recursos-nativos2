@@ -1,7 +1,9 @@
-import { useCallback, useState } from "react";
-import { useEffect } from "react";
+import { StyleSheet, Text, View, FlatList } from "react-native";
+import { useCallback, useEffect, useState } from "react";
 import * as Contacts from "expo-contacts";
-import { StyleSheet, Text, View } from "react-native";
+import * as Notification from "expo-notifications";
+import Items from "../components/Items";
+import { useFocusEffect } from "@react-navigation/native";
 
 
 const styles = StyleSheet.create({
@@ -16,28 +18,45 @@ export default function ContactsInfo({ navigation }) {
     async function carregarContatos() {
         const { data } = await Contacts.getContactsAsync({
             fields: [
-                Contacts.Fields.Emails, Contacts.Fields.PhoneNumbers,
+                Contacts.Fields.Emails, 
+                Contacts.Fields.PhoneNumbers,
+                // Contacts.Fields.ImageAvailable,
+                // Contacts.Fields.Image,
+
             ],
         })
-         setContact(data)
-        console.log(contacts);
-
+        setContact(data)
+        console.log(data)
         // if (data.length > 0) {
         //     const contact = data[0];
         //     console.log(contacts);
         // }
     }
-
-    useEffect((
+    // useFocusEffec = efeito que deixa a tela de segundo plano quando não acionada
+    useFocusEffect(
         useCallback(() => {
             (async () => {
                 const { status } = await Contacts.requestPermissionsAsync();
                 if (status === 'granted') {
-                    carregarContatos();
+                   await carregarContatos();
                 }
             })();
-        })
-    ), []);
+        }, [])
+    ); 
+
+    async function notifContacts() {
+        const token = await Notification.scheduleNotificationAsync({
+            content: {
+                title: "Mensagem",
+                subtitle: "Contato",
+                body: "Você tem um novo contato",
+                data: { id: "1" },
+                
+            },
+
+            trigger: { seconds: 3 },
+        });
+    }
 
     return (
         <View styles={styles.container}>
@@ -45,21 +64,28 @@ export default function ContactsInfo({ navigation }) {
             <View>
                 {
                     contacts
-                    ? <FileList
+                    ? <FlatList
+                        onPress={() => navigation.navigate("ContactsInfo")}
                         styles={{
                             flex: 1,
                             gap: 10,
                         }}
                         data={contacts}
-                        keyExtractor={(item) => item.idtoString()}
-                        renderItem={({ item }) => {
+                        // extrair a chave para cada item ter uma chave especifica
+                        keyExtractor={(item) => item.id.toString()}
+                        renderItem={({ item }) => (
+                            // ITEMS É O COMPONENTE QUE CRIAMOS PARA RENDERIZAR OS CONTATOS ESTÁ EM COMPONENTS/ITEMS - TEAMS
                             <Items 
-                             item
+                                item={item}
+                                notifContacts={notifContacts}
                             />
-                        }}
+                            
+                        )}
                         
                     />
+                    
                     : <></>
+                    
 
                 }
             </View>
