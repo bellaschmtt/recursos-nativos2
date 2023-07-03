@@ -1,5 +1,5 @@
 import {View, StyleSheet, Text, Button} from 'react-native';
-// import Header from '../components/Header';
+import Header from '../components/Header';
 import styles from '../utils/styles';
 
 
@@ -7,6 +7,7 @@ export default function Home({navigation}) {
 
     return (
         <View style={styles.container}>
+            <Header title="Contatos"/>
             <Text style={styles.content}>
                 Bem-vindo
             </Text>
@@ -19,6 +20,7 @@ export default function Home({navigation}) {
                 mode="contained"
                 onPress={() => navigation.navigate('BatteryInfo')}
                 title="Ir para BatteryInfo"
+                
             />
             <Button 
                 mode="contained"

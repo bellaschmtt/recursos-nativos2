@@ -4,6 +4,7 @@ import * as Contacts from "expo-contacts";
 import * as Notification from "expo-notifications";
 import Items from "../components/Items";
 import { useFocusEffect } from "@react-navigation/native";
+import Header from "../components/Header";
 
 
 const styles = StyleSheet.create({
@@ -60,6 +61,7 @@ export default function ContactsInfo({ navigation }) {
 
     return (
         <View styles={styles.container}>
+            <Header title="Contatos"/>
             <Text>Contatos</Text>
             <View>
                 {

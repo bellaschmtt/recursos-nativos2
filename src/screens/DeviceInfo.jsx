@@ -1,14 +1,14 @@
 
 import { StyleSheet, Text, View,  Button } from 'react-native';
 import * as Device from 'expo-device';
-// import { Header } from '../components/Header';
+import  Header  from '../components/Header';
 // import {Footer} from '../components/Footer';
 const styles = StyleSheet.create({
-    title: {
-        backgroundColor: "purple",
-        fontSize: 25,
-        padding: 10,
-    },
+    // title: {
+    //     backgroundColor: "purple",
+    //     fontSize: 25,
+    //     padding: 10,
+    // },
 
     estilo: {
         fontSize: 15,
@@ -20,17 +20,21 @@ const styles = StyleSheet.create({
     },
 
 
-    botao: {
-        backgroundColor: "red",
-        padding: 10,
-        margin: 10,
-        top: 10,
+    // botao: {
+    //     backgroundColor: "red",
+    //     padding: 10,
+    //     margin: 10,
+    //     top: 10,
+    // },
+    container: {
+        flex: 1,
+        gap: 10,
     },
-    
 });
 export default function DeviceInfo() {
     return(
-        <View>
+        <View style={styles.container}>
+            <Header title="Device" />
             <Text style={styles.title}>Informações do dispositivo</Text>
             <Text style={styles.estilo}>O seu dispositivo é:{Device.modelName}</Text>
             <Text style={styles.estilo}>O seu dispositivo é:{Device.modelId}</Text>

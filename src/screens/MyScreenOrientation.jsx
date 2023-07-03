@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, Button } from "react-native";
 import React from "react";
-// import Header from "../components/Header";
+import Header from "../components/Header";
 
 import * as ScreenOrientation from "expo-screen-orientation";
 
@@ -11,6 +11,7 @@ async function padrao() {
 async function direita() {
   await ScreenOrientation.lockAsync(
     ScreenOrientation.OrientationLock.LANDSCAPE_RIGHT
+    
   );
 }
 
@@ -37,7 +38,7 @@ async function padraoForcado2() {
 export default function MyScreenOrientation({ navigation }) {
   return (
     <View style={{ height: "100%" }}>
-      {/* <Header title="Orientação da tela"/> */}
+      <Header title="Orientação"/>
       <View style={{ justifyContent: "center", alignContent: "center" }}>
         <View style={{ marginBottom: 30 }} />
         <View style={{ marginLeft: 10, marginRight: 10 }}>
@@ -53,11 +54,11 @@ export default function MyScreenOrientation({ navigation }) {
           <View style={{ marginTop: 20 }} />
         </View>
         <View style={{ marginLeft: 10, marginRight: 10 }}>
-          <Button title="padraoForcado" onPress={padraoForcado}></Button>
+          <Button title="padraoForcado" onPress={padraoForcado} ></Button>
           <View style={{ marginTop: 20 }} />
         </View>
         <View style={{ marginLeft: 10, marginRight: 10 }}>
-          <Button title="inverterForcado" onPress={inverterForcado}></Button>
+          <Button title="inverterForcado" onPress={inverterForcado} ></Button>
           <View style={{ marginTop: 20 }} />
         </View>
         <View style={{ marginLeft: 10, marginRight: 10 }}>

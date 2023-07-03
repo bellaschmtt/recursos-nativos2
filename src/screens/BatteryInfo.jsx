@@ -1,6 +1,6 @@
 import { View, StyleSheet, Text, Button } from "react-native";
 // import Footer from "../components/Footer";
-// import Header from "../components/Header";
+import Header from "../components/Header";
 import { useEffect, useState } from "react";
 import * as Battery from "expo-battery";
 
@@ -70,6 +70,7 @@ export default function BatteryInfo({navigation}) {
 
   return (
     <View style={styles.container}>
+      <Header title="Nível da Bateria" />
       <Text style={styles.content}> {nivelBateria}% </Text>
       <View style={{ backgroundColor: background, width: 800, height: 50 }}>
         <Text style={{}}>{textoBateria}</Text>
