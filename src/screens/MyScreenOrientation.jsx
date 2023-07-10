@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Button } from "react-native";
+import { StyleSheet, View, Button } from "react-native";
 import React from "react";
 import Header from "../components/Header";
 
@@ -37,7 +37,7 @@ async function padraoForcado2() {
 
 export default function MyScreenOrientation({ navigation }) {
   return (
-    <View style={{ height: "100%", backgroundColor: orientacao === "portrait" ? "red" : "green" }}>
+    <View style={{ height: "100%"  }}>
       <Header title="Orientação"/>
       <View style={{ justifyContent: "center", alignContent: "center" }}>
         <View style={{ marginBottom: 30 }} />

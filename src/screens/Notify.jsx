@@ -119,11 +119,8 @@ export default function Notify({ navigation }) {
 
       <View>
         <Text>Token: {expoToken}</Text>
-
         <Button title="Enviar Notificação" onPress={notiMensagem} />
-
         <Button title="Enviar Alerta da bateria" onPress={notiAlertaBateria} />
-
         <Button title="Enviar Alerta do aparelho" onPress={notificarAparelho} />
 
         <Button

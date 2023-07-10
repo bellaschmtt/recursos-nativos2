@@ -20,12 +20,12 @@ const styles = StyleSheet.create({
     },
 
 
-    // botao: {
-    //     backgroundColor: "red",
-    //     padding: 10,
-    //     margin: 10,
-    //     top: 10,
-    // },
+    botao: {
+        
+        padding: 10,
+        margin: 10,
+        top: 10,
+    },
     container: {
         flex: 1,
         gap: 10,
