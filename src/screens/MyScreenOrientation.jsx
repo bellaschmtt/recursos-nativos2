@@ -37,8 +37,10 @@ async function padraoForcado2() {
 
 export default function MyScreenOrientation({ navigation }) {
   return (
-    <View style={{ height: "100%"  }}>
-      <Header title="Orientação"/>
+    <View style={{ height: "100%" }}>
+      <View style={{ backgroundColor: "green" }}> 
+        <Header title="Orientação"/>
+      </View>
       <View style={{ justifyContent: "center", alignContent: "center" }}>
         <View style={{ marginBottom: 30 }} />
         <View style={{ marginLeft: 10, marginRight: 10 }}>

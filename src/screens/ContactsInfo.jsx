@@ -61,7 +61,9 @@ export default function ContactsInfo({ navigation }) {
 
     return (
         <View styles={styles.container}>
-            <Header title="Contatos"/>
+            <View style={{ backgroundColor: "green" }}> 
+                <Header title="Orientação"/>
+            </View>
             <Text>Contatos</Text>
             <View>
                 {

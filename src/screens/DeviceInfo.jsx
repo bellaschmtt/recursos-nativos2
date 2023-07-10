@@ -34,7 +34,9 @@ const styles = StyleSheet.create({
 export default function DeviceInfo() {
     return(
         <View style={styles.container}>
-            <Header title="Device" />
+            <View style={{ backgroundColor: "green" }}> 
+                <Header title="Orientação"/>
+            </View>
             <Text style={styles.title}>Informações do dispositivo</Text>
             <Text style={styles.estilo}>O seu dispositivo é:{Device.modelName}</Text>
             <Text style={styles.estilo}>O seu dispositivo é:{Device.modelId}</Text>

@@ -111,8 +111,9 @@ export default function Notify({ navigation }) {
   // }
   return (
     <View style={styles.container}>
-      <Header title="Notificações" />
-
+      <View style={{ backgroundColor: "green" }}> 
+        <Header title="Orientação"/>
+      </View>
       <View>
         <Text>Notify</Text>
       </View>

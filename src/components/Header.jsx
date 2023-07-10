@@ -2,10 +2,11 @@ import { Text, View, StyleSheet } from "react-native";
 // import * as Battery from "expo-battery";
 const styles = StyleSheet.create({
     header: {
+       
         padding: 20,
         paddingBottom: 20,
         paddingHorizontal: 5,
-        backgroundColor: 'green',
+        backgroundColor: 'green ',
     },
     headerTextStyle: {
         marginTop: 20,

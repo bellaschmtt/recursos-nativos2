@@ -70,7 +70,9 @@ export default function BatteryInfo({navigation}) {
 
   return (
     <View style={styles.container}>
-      <Header title="Nível da Bateria" />
+      <View style={{ backgroundColor: "green" }}> 
+        <Header title="Orientação"/>
+      </View>
       <Text style={styles.content}> {nivelBateria}% </Text>
       <View style={{ backgroundColor: background, width: 800, height: 50 }}>
         <Text style={{}}>{textoBateria}</Text>

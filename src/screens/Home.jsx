@@ -1,5 +1,5 @@
 import {View, StyleSheet, Text, Button} from 'react-native';
-// import Header from '../components/Header';
+import Header from '../components/Header';
 
 
 export const styles = StyleSheet.create({
@@ -7,21 +7,17 @@ export const styles = StyleSheet.create({
         // backgroundColor: "purple",
       flex: 1,
       justifyContent: "center",
-      alignItems: "center",
+    //   alignItems: "center",
       padding: 10,
       top: 10,
      
     
     },
-    //fazer um estilo para dar distância aos demais    
-    estilo: {
-        // fontSize: 15,
-        // backgroundColor: "yellow",
-        padding: 10,
-        top: 10,
-        // bottom: 10,
-        margin: 10,
-    },
+    content: {
+        fontSize: 20,
+      
+    } 
+   
 });
 
 
@@ -29,33 +25,41 @@ export default function Home ({navigation}) {
 
     return (
         <View style={styles.container}>
-            {/* <Header title="Contatos"/> */}
+
+            <View style={{ backgroundColor: "green" }}> 
+                <Header title="Orientação"/>
+            </View>
+
             <Text style={styles.content}>
                 Bem-vindo
             </Text>
+            <View style={{ marginTop: 10 }} />
             <Button 
-               
                 mode="contained"
                 onPress={() => navigation.navigate('DeviceInfo')}
                 title="Ir para DeviceInfo"
             />
+            <View style={{ marginTop: 10 }} />
             <Button 
                 // mode="contained"
                 onPress={() => navigation.navigate('BatteryInfo')}
                 title="Ir para Bateria e afins"
                 
             />
+            <View style={{ marginTop: 10 }} />
             <Button 
                 
                 mode="contained"
                 onPress={() => navigation.navigate('Notify')}
                 title="Ir para Notificações"
             />
+            <View style={{ marginTop: 10 }} />
             <Button 
                 mode="contained"
                 onPress={() => navigation.navigate('MyScreenOrientation')}
                 title="Ir para MyScreenOrientation"
             />
+            <View style={{ marginTop: 10 }} />
             <Button 
                 mode="contained"
                 onPress={() => navigation.navigate('ContactsInfo')}
