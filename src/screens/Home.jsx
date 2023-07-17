@@ -65,6 +65,12 @@ export default function Home ({navigation}) {
                 onPress={() => navigation.navigate('ContactsInfo')}
                 title="Ir para Contatos"
             />
+             <View style={{ marginTop: 10 }} />
+            <Button 
+                mode="contained"
+                onPress={() => navigation.navigate('TaskList')}
+                title="Ir para tarerfas"
+            />
 
         </View>
     )
