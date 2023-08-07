@@ -5,7 +5,7 @@ import Header from '../components/Header';
 export const styles = StyleSheet.create({
     container: {
         // backgroundColor: "purple",
-      flex: 1,
+    //   flex: 1 ,
       justifyContent: "center",
     //   alignItems: "center",
       padding: 10,
@@ -65,12 +65,13 @@ export default function Home ({navigation}) {
                 onPress={() => navigation.navigate('ContactsInfo')}
                 title="Ir para Contatos"
             />
-             <View style={{ marginTop: 10 }} />
+            <View style={{ marginTop: 10 }} />
             <Button 
                 mode="contained"
-                onPress={() => navigation.navigate('TaskList')}
-                title="Ir para tarerfas"
+                onPress={() => navigation.navigate('Sensors')}
+                title="Ir para o Sensor"
             />
+           
 
         </View>
     )

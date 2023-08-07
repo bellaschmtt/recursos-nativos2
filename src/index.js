@@ -6,7 +6,9 @@ import Notify from "./screens/Notify";
 import { NavigationContainer } from "@react-navigation/native";
 import MyScreenOrientation from "./screens/MyScreenOrientation";
 import ContactsInfo from "./screens/ContactsInfo";
-import TaskList from "./screens/TaskList";
+import Sensors from "./screens/Sensors";
+
+
 
 const Stack = createNativeStackNavigator();
 
@@ -46,9 +48,9 @@ export default function RootNavigation() {
           options={{ title: "ContactsInfo" }}
         />
         <Stack.Screen
-          name="TaskList"
-          component={TaskList}
-          options={{ title: "TaskList" }}
+          name="Sensors"
+          component={Sensors}
+          options={{ title: "Sensor" }}
         />
       </Stack.Navigator>
     </NavigationContainer>
