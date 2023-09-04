@@ -7,6 +7,9 @@ import { NavigationContainer } from "@react-navigation/native";
 import MyScreenOrientation from "./screens/MyScreenOrientation";
 import ContactsInfo from "./screens/ContactsInfo";
 import Sensors from "./screens/Sensors";
+// import ScreensInfo from "./screens/ScreensInfo";
+import ScreenCaptureExample from "./screens/ScreensInfo";
+import MyLocalAuthentication from "./screens/LocalAuthentication";
 
 
 
@@ -51,6 +54,16 @@ export default function RootNavigation() {
           name="Sensors"
           component={Sensors}
           options={{ title: "Sensor" }}
+        />
+        <Stack.Screen
+          name="ScreensInfo"
+          component={ScreenCaptureExample}
+          options={{ title: "ScreensInfo" }}
+        />
+         <Stack.Screen
+          name="LocalAuthentication"
+          component={MyLocalAuthentication}
+          options={{ title: "LocalAuthentication" }}
         />
       </Stack.Navigator>
     </NavigationContainer>

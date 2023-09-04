@@ -71,6 +71,18 @@ export default function Home ({navigation}) {
                 onPress={() => navigation.navigate('Sensors')}
                 title="Ir para o Sensor"
             />
+             <View style={{ marginTop: 10 }} />
+            <Button 
+                mode="contained"
+                onPress={() => navigation.navigate('ScreensInfo')}
+                title="Ir para o captura de tela"
+            />
+            <View style={{ marginTop: 10 }} />
+            <Button 
+                mode="contained"
+                onPress={() => navigation.navigate('LocalAuthentication')}
+                title="bio"
+            />
            
 
         </View>
