@@ -83,7 +83,12 @@ export default function Home ({navigation}) {
                 onPress={() => navigation.navigate('LocalAuthentication')}
                 title="bio"
             />
-           
+            <View style={{ marginTop: 10 }} />
+            <Button 
+                mode="contained"
+                onPress={() => navigation.navigate('CameraInfo')}
+                title="Camera"
+            />
 
         </View>
     )
