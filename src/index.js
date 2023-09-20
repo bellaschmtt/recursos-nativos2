@@ -11,6 +11,7 @@ import Sensors from "./screens/Sensors";
 import ScreenCaptureExample from "./screens/ScreensInfo";
 import MyLocalAuthentication from "./screens/LocalAuthentication";
 import CameraInfo from "./screens/CameraInfo";
+import IdosoNoti from "./screens/IdosoNoti";
 
 
 
@@ -66,10 +67,15 @@ export default function RootNavigation() {
           component={MyLocalAuthentication}
           options={{ title: "LocalAuthentication" }}
         />
-         <Stack.Screen
+        <Stack.Screen
           name="CameraInfo"
           component={CameraInfo}
           options={{ title: "CameraInfo" }}
+        />
+        <Stack.Screen
+          name="IdosoNoti"
+          component={IdosoNoti}
+          options={{ title: "IdosoNoti" }}
         />
       </Stack.Navigator>
     </NavigationContainer>

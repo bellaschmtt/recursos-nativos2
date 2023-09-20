@@ -89,6 +89,12 @@ export default function Home ({navigation}) {
                 onPress={() => navigation.navigate('CameraInfo')}
                 title="Camera"
             />
+            <View style={{ marginTop: 10 }} />
+            <Button 
+                mode="contained"
+                onPress={() => navigation.navigate('IdosoNoti')}
+                title="IdosoNoti"
+            />
 
         </View>
     )
