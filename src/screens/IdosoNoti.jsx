@@ -25,7 +25,10 @@ export default function App() {
     const hour = parseInt(timeArray[0]);
     const minute = parseInt(timeArray[1]);
 
-    const trigger = new Date(year, month - 1, day, hour, minute);
+    // const trigger = new Date(year, month - 1, day, hour, minute);
+    const trigger = new Date(Date.now() + 60 * 60 * 1000);
+    trigger.setMinutes(0);
+    trigger.setSeconds(0);
 
     await Notification.scheduleNotificationAsync({
       content: {
